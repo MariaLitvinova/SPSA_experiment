@@ -1,31 +1,16 @@
-function [previous_experiment_result] = previous_plot_function(a, b, c, d)
+function [previous_experiment_result, x] = previous_plot_function(a, b, c, d)
     current_u = 0;
     
-    result = zeros(1, 100);
-    x1 = zeros(1, 100);
-    x2 = zeros(1, 100);
+    result = zeros(1, 200);
+    x = zeros(1, 200);
     
-    for i = 1:100
+    for i = 1:200
         current_u = current_u + 5;
+        x(i) = current_u;
         
-        s = 0;
-        ss = 0;
+        ss_average = generate_ss(current_u, a, b, c);
         
-        for j = 1:100
-            w = rand();
-            xx = -(a / current_u) * log(w);
-            x1(j) = round(xx);
-            
-            if (x1(j) > 0) 
-                x2(j) = max(b - exp(x1(j) - c), 0);
-                s = s + round(x1(j));
-                ss = ss + round(x1(j) * x2(j));
-            end
-        end
-        
-        s = s / 100;
-        
-        result(i) = ss;
+        result(i) = ss_average;
     end
     
     previous_experiment_result = result;
