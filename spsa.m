@@ -12,7 +12,9 @@ figure
 plot(x, plot_result);
 
 
-experiment_result = previous_experiment(a, b, c, d, evaluation_functional_1);
+[experiment_result, x11, x12, x21, x22, y1, y2, delta] = previous_experiment(a, b, c, d, evaluation_functional_1);
+T = table(delta.', x11.', x21.', y1.', x12.', x22.', y2.', experiment_result.');
+writetable(T, 'results.xls');
 figure
 plot(experiment_result);
 
