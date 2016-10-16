@@ -20,8 +20,8 @@ function [previous_experiment_result, x1_1_vector, x1_2_vector, x2_1_vector,x2_2
     while k <= number_of_iterations
         delta = generate_delta();
         
-        beta = 10;
-        alpha = 2;
+        beta = 7;
+        alpha = 1;
         
         b_uu = max(u + beta * delta, 10);
         

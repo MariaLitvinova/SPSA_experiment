@@ -6,7 +6,6 @@ b = 3;
 c = 8;
 d = 0.5;
 
-
 [plot_result, x] = previous_plot_function(a, b, c, d);
 figure
 plot(x, plot_result);
